@@ -1,8 +1,19 @@
-function ProfileCard(props) {
+function ProfileCard({ title, handle, image }) {
   return (
-    <div>
-      <p>Title is {props.title}</p>
-      <p>Handle is {props.handle}</p>
+    <div className="card">
+      <div className="card-image">
+        <figure className="image is-1by1">
+          <img src={image} alt="No" />
+        </figure>
+      </div>
+
+      {/* card content */}
+      <div className="card-content">
+        <div className="media-content">
+          <p class="title is-4">{title}</p>
+          <p class="subtitle is-6">{handle}</p>
+        </div>
+      </div>
     </div>
   );
 }
