@@ -1,5 +1,30 @@
-function AnimalShow({ type, color }) {
-  return <div className={color}>{type}</div>;
+import bird from "./svg/bird.svg";
+import cat from "./svg/cat.svg";
+import cow from "./svg/cow.svg";
+import dog from "./svg/dog.svg";
+import gator from "./svg/gator.svg";
+import heart from "./svg/heart.svg";
+import horse from "./svg/horse.svg";
+// function AnimalShow({ type, color }) {
+// return <div className={color}>{type}</div>;
+// }
+
+const animalMap = {
+  bird: bird,
+  cat: cat,
+  cow: cow,
+  dog: dog,
+  gator: gator,
+  heart: heart,
+  horse: horse,
+};
+
+function AnimalShow({ type }) {
+  return (
+    <div>
+      <img src={animalMap[type]} alt={type + " image"} width={50} height={50} />
+    </div>
+  );
 }
 
 export default AnimalShow;
