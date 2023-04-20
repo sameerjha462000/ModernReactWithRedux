@@ -1,5 +1,5 @@
 function AnimalShow({ type, color }) {
-  return <div className={color + " display-2"}>{type}</div>;
+  return <div className={color}>{type}</div>;
 }
 
 export default AnimalShow;
