@@ -5,6 +5,8 @@ import dog from "./svg/dog.svg";
 import gator from "./svg/gator.svg";
 import heart from "./svg/heart.svg";
 import horse from "./svg/horse.svg";
+import { useState } from "react";
+import "./AnimalShow.css";
 // function AnimalShow({ type, color }) {
 // return <div className={color}>{type}</div>;
 // }
@@ -20,9 +22,20 @@ const animalMap = {
 };
 
 function AnimalShow({ type }) {
+  const [clicks, setClicks] = useState(0);
+  function handleClick() {
+    setClicks(clicks + 1);
+  }
+
   return (
-    <div>
-      <img src={animalMap[type]} alt={type + " image"} width={50} height={50} />
+    <div className="animal-show" onClick={handleClick}>
+      <img src={animalMap[type]} alt={type + " image"} className="animal" />
+      <img
+        src={heart}
+        alt="heart-image"
+        className="heart"
+        style={{ width: 10 + 10 * clicks + "px" }}
+      />
     </div>
   );
 }
