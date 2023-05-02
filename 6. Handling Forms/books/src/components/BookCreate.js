@@ -16,6 +16,11 @@ function BookCreate({ onCreate }) {
   return (
     <div className="book-create">
       <h3>Add a Book</h3>
+
+      {/* as soon as the user submits the form, we want to take the entered title and then pass
+        it to the App.js and update the books array 
+      */}
+
       <form onSubmit={handleSubmit}>
         <label>Title</label>
         <input className="input" value={title} onChange={handleChange} />
