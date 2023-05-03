@@ -26,6 +26,8 @@ function BookShow({ book, onDelete, onChange }) {
 
   return (
     <div className="book-show">
+      {/* This fetches the random images from picsum photos */}
+      <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
       <div>{content}</div>
       <div className="actions">
         <button className="edit" onClick={handleEditClick}>

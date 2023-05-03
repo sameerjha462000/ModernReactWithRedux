@@ -9,6 +9,9 @@ function BookCreate({ onCreate }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (title.trim().length === 0) return;
+
     onCreate(title);
     setTitle("");
   };
