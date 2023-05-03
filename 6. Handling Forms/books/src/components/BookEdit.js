@@ -1,14 +1,13 @@
 import { useState } from "react";
 
-function BookEdit({ book, onChange, onSave }) {
+function BookEdit({ book, onSave }) {
   const [enteredTitle, setEnteredTitle] = useState(book.title);
 
   // as soon as user clicks save button i want to change the title of the book and then
   // close the form
   const handleSubmit = (event) => {
     event.preventDefault();
-    onChange(book.id, enteredTitle);
-    onSave();
+    onSave(book.id, enteredTitle);
   };
 
   const handleChange = (event) => {
