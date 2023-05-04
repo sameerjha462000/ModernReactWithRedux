@@ -1,19 +1,19 @@
-import BookCreate from "./components/BookCreate";
-import BookList from "./components/BookList";
-import { useState } from "react";
+import { useState } from 'react';
+import BookCreate from './components/BookCreate';
+import BookList from './components/BookList';
 
 function App() {
   const [books, setBooks] = useState([]);
 
-  // as soon as user submits the form, we receive the title of the book that he wants to create
-  // this function takes the title and then updates the book array
-  const CreateBook = (title) => {
-    const updatedBooks = [
-      ...books,
-      { id: Math.round(Math.random() * 9999), title },
-    ];
+  const editBookById = (id, newTitle) => {
+    const updatedBooks = books.map((book) => {
+      if (book.id === id) {
+        return { ...book, title: newTitle };
+      }
 
-    // now we need to update the books state
+      return book;
+    });
+
     setBooks(updatedBooks);
   };
 
@@ -22,31 +22,25 @@ function App() {
       return book.id !== id;
     });
 
-    // now update the books state
     setBooks(updatedBooks);
   };
 
-  // onChange will take the id and the new title of the book and then change the title of the
-  // book with the received title
-  const handleChange = (id, title) => {
-    for (let i = 0; i < books.length; i++) {
-      if (books[i].id === id) books[i].title = title;
-    }
-
-    const updatedBooks = [...books];
-
+  const createBook = (title) => {
+    const updatedBooks = [
+      ...books,
+      {
+        id: Math.round(Math.random() * 9999),
+        title,
+      },
+    ];
     setBooks(updatedBooks);
   };
 
   return (
     <div className="app">
       <h1>Reading List</h1>
-      <BookList
-        books={books}
-        onDelete={deleteBookById}
-        onChange={handleChange}
-      />
-      <BookCreate onCreate={CreateBook} />
+      <BookList onEdit={editBookById} books={books} onDelete={deleteBookById} />
+      <BookCreate onCreate={createBook} />
     </div>
   );
 }

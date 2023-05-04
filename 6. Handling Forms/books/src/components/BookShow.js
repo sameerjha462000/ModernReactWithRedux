@@ -1,9 +1,7 @@
-import { useState } from "react";
-import BookEdit from "./BookEdit";
+import { useState } from 'react';
+import BookEdit from './BookEdit';
 
-function BookShow({ book, onDelete, onChange }) {
-  // showEdit is a state which decides if the edit form would be shown or not
-  // Initially it would be set to false
+function BookShow({ book, onDelete, onEdit }) {
   const [showEdit, setShowEdit] = useState(false);
 
   const handleDeleteClick = () => {
@@ -14,19 +12,18 @@ function BookShow({ book, onDelete, onChange }) {
     setShowEdit(!showEdit);
   };
 
-  // handleSave will be used to toggle the form as soon as the user clicks the save button and send the id of the book to be changed to onChange
-  const handleSave = (id, title) => {
+  const handleSubmit = (id, newTitle) => {
     setShowEdit(false);
-    onChange(id, title);
+    onEdit(id, newTitle);
   };
 
   let content = <h3>{book.title}</h3>;
-
-  if (showEdit) content = <BookEdit book={book} onSave={handleSave} />;
+  if (showEdit) {
+    content = <BookEdit onSubmit={handleSubmit} book={book} />;
+  }
 
   return (
     <div className="book-show">
-      {/* This fetches the random images from picsum photos */}
       <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
       <div>{content}</div>
       <div className="actions">
