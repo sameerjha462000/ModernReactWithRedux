@@ -1,0 +1,20 @@
+1. Open another terminal and type "npm install json-server".
+
+2. Now create a file in the root directory named as "db.json".
+
+3. Now add the following code :
+	{
+		"books": []
+	}
+
+4. Now add the following in package.json in "scripts" :
+	"server" : "json-server -p 3001 --watch db.json"
+
+	This will start the json server on the port 3001 as port 3000 is already used by react.
+	The instruction is to watch the file db.json in the root directory.
+
+5. Now type the following code in the terminal :
+	"npm run server"
+
+6. Also install the REST Client extension in the VSCode.
+	
