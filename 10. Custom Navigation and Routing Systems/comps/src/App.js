@@ -4,13 +4,13 @@ const App = () => {
   return (
     <div>
       <div>
-        <Button primary rounded outline>
+        <Button primary rounded>
           <GoBell />
           Click me!!
         </Button>
       </div>
       <div>
-        <Button secondary outline>
+        <Button secondary>
           <GoCloudDownload />
           Buy Now!!
         </Button>
@@ -23,13 +23,11 @@ const App = () => {
       </div>
       <div>
         <Button warning rounded outline>
-          <GoBell />
           Hide Ads!!
         </Button>
       </div>
       <div>
         <Button danger outline>
-          <GoBell />
           Something!!
         </Button>
       </div>
