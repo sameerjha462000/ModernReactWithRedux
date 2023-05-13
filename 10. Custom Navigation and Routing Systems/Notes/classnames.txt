@@ -1,0 +1,6 @@
+1. To install the classnames library, type {npm install classnames}.
+2. To use this library, we write {import classnames from classnames}. // we can write anything in place of "classnames", 
+	we just need to import the function.
+3. Now use the "classnames" function. For Example :
+	
+	const finalClassName = classnames("px-3", "py-1.5", "border", "text-white", {"text-blue-500":primary});

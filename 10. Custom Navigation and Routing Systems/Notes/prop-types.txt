@@ -1,0 +1,21 @@
+1. To install the prop-types, we first close the running react server.
+2. Then type the "npm install --save prop-types" in the terminal.
+3. To use "prop-types", write {import PropTypes from 'prop-types'}.
+4. To check for parameters, we then write like this
+
+	Button.propTypes = {
+		requiredString:PropTypes.string.isRequired,
+		optionalBool:PropTypes.bool
+	}
+5. We can also use a custom validator function inside the propTypes
+
+	Button.propTypes = {
+		checkParamters : ({name, age}) => {
+			if(name.trim().length() === 0 || age.trim().length() === 0)
+				return new Error("Invalid input")
+			if(+age < 1)
+				return new Error("The age parameter is empty");
+		}
+	}
+
+===========================================================THE END=========================================================

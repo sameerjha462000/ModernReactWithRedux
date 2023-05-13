@@ -1,31 +1,30 @@
-import Button from "./Button";
-
-const App = (props) => {
+import Button from "./components/Button";
+const App = () => {
   return (
     <div>
       <div>
-        <Button primary rounded>
-          Hi There!!
+        <Button primary rounded outline>
+          Click me!!
         </Button>
       </div>
       <div>
         <Button secondary outline>
-          Buy Now!
+          Buy Now!!
+        </Button>
+      </div>
+      <div>
+        <Button success rounded>
+          See Deal!!
+        </Button>
+      </div>
+      <div>
+        <Button warning rounded outline>
+          Hide Ads!!
         </Button>
       </div>
       <div>
         <Button danger outline>
-          Seal Deal
-        </Button>
-      </div>
-      <div>
-        <Button rounded outline>
-          Hide Ads!
-        </Button>
-      </div>
-      <div>
-        <Button primary secondary>
-          Something!
+          Something!!
         </Button>
       </div>
     </div>
