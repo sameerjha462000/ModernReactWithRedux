@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 /* https://tailwindcss.com/docs/guides/create-react-app */
+
+button > svg {
+  margin-right: 5px;
+}
