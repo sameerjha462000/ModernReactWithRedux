@@ -9,9 +9,11 @@ const Button = ({
   danger,
   outline,
   rounded,
+  ...rest
 }) => {
   const finalClassName = achaar(
-    " flex item-center px-3 py-1.5 border text-white",
+    rest.className,
+    "flex item-center px-3 py-1.5 border text-white",
     {
       "border-blue-500 bg-blue-500": primary,
       "border-gray-500 bg-gray-500": secondary,
@@ -30,7 +32,11 @@ const Button = ({
 
   // console.log(finalClassName);
 
-  return <button className={finalClassName}>{children}</button>;
+  return (
+    <button {...rest} className={finalClassName}>
+      {children}
+    </button>
+  );
 };
 
 Button.propTypes = {
