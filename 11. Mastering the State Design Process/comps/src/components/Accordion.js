@@ -6,14 +6,23 @@ const Accordion = ({ items }) => {
   const [expandedIndex, setExpandedIndex] = useState(-1);
 
   const handleClick = (index) => {
-    // we need to check if the user is clicking for the second time
-    if (expandedIndex === index) {
-      // this means that the user is trying to close the content
-      // thus we need to set the expandedIndex to be -1
-      setExpandedIndex(-1);
-    } else {
-      setExpandedIndex(index);
-    }
+    // we use functional state updates because of delayed state updates ... fuck you react
+    setExpandedIndex((current) => {
+      if (current === index) {
+        return -1;
+      } else {
+        return index;
+      }
+    });
+
+    // // we need to check if the user is clicking for the second time
+    // if (expandedIndex === index) {
+    //   // this means that the user is trying to close the content
+    //   // thus we need to set the expandedIndex to be -1
+    //   setExpandedIndex(-1);
+    // } else {
+    //   setExpandedIndex(index);
+    // }
   };
 
   const renderedItems = items.map((item, index) => {
